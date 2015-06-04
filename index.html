@@ -6,15 +6,15 @@
   
   <title>Jack Wu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="my blog">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Jack Wu">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://wsl222000.github.io/index.html">
 <meta property="og:site_name" content="Jack Wu">
-<meta property="og:description">
+<meta property="og:description" content="my blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jack Wu">
-<meta name="twitter:description">
+<meta name="twitter:description" content="my blog">
   
     <link rel="alternative" href="/atom.xml" title="Jack Wu" type="application/atom+xml">
   
@@ -36,6 +36,10 @@
       <h1 id="logo-wrap">
         <a href="/" id="logo">Jack Wu</a>
       </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">��ӭ�����ҵĲ��ͣ�</a>
+        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -60,7 +64,7 @@
           <input name=tn type=hidden value="bds">
           <input name=cl type=hidden value="3">
           <input name=ct type=hidden value="2097152">
-          <input type="hidden" name="si" value="yoursite.com">
+          <input type="hidden" name="si" value="wsl222000.github.io">
         </form>
       </div>
     </div>
@@ -97,16 +101,35 @@
 </blockquote>
 </li>
 </ol>
-        
-          <p class="article-more-link">
-            <a href="/2015/06/04/ftp/#more">Read More</a>
-          </p>
-        
+<!--阅读全文-->
+<ol>
+<li><p>vsftpd 开启：</p>
+<blockquote>
+<p>/etc/init.d/vsftpd start 或者 service vsfptd start<br><br>重启：service vsftpd restart</p>
+</blockquote>
+</li>
+<li><p>配置虚拟用户本地数据组用户登录<br>3.1 配置/etc/vsftpd/vsftpd.conf<br><img src="http://i.imgur.com/QEFETjM.png" alt=""></p>
+</li>
+</ol>
+<p>3．2配置 /etc/pam.d/vsftpd.vu<br><img src="http://i.imgur.com/aIJjCcd.png" alt=""></p>
+<p>3.3创建/etc/vstfpd/vcon文件目录，这下面放置两个文件和一个目录<br>文件vir_user 放用户/密码<br><img src="http://i.imgur.com/9Bk779C.png" alt=""></p>
+<p>使用vir_user.db 用命令执行：</p>
+<blockquote>
+<p>db_load -T -t hash -f /etc/vsftpd/vconf/vir_user /etc/vsftpd/vconf/vir_user.db</p>
+</blockquote>
+<p>3.4创建文件夹userlocal 里面放以用户命名的文件<br><img src="http://i.imgur.com/xEbv7CD.png" alt=""></p>
+<p>3.5需要注意的：<a href="http://dngood.blog.51cto.com/446195/1094079/" target="_blank" rel="external">http://dngood.blog.51cto.com/446195/1094079/ </a><br>报错：500 OOPS: bad bool value in config file for: anonymous_enable<br>需要修改，不能有空格：<br>在/etc/vsftpd/vconf/liufeng 编辑这个文件的时候不能有空格！<br><img src="http://i.imgur.com/1njwiKd.png" alt=""></p>
+<p>更详细的配置说明：<br><a href="http://bbs.51cto.com/thread-811192-1.html" target="_blank" rel="external">http://bbs.51cto.com/thread-811192-1.html</a></p>
+<p>categories:</p>
+<ul>
+<li>linux</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2015/06/04/ftp/" data-id="ciahsmwgy0000ror3jdbr1qmd" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://wsl222000.github.io/2015/06/04/ftp/" data-id="ciahtfol10000iwr3zsame3uv" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -147,7 +170,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2015/06/03/hexo-inatll/" data-id="ciahsmwhq0002ror3rrei33ts" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://wsl222000.github.io/2015/06/03/hexo-inatll/" data-id="ciahtfolk0002iwr3su777q7m" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -333,7 +356,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015 Wsl<br>
+      &copy; 2015 wsl<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       .
       Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
