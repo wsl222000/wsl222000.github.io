@@ -4,18 +4,47 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hexo inatll | wsl_blog</title>
+  <title>ftp虚拟用户配置 | wsl_blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hexo加github搭建博客参考地址：http://www.cnblogs.com/zhcncn/p/4097881.htmlhttp://blog.fens.me/hexo-blog-github">
+  <meta name="description" content="1.yum安装FTP：
+
+yum install vsftpd pam db4 -y设置为系统服务：chkconfig –level 35 vsftpd on
+
+2.vsftpd 开启：
+
+/etc/init.d/vsftpd start 或者 service vsfptd start重启：service vsftpd restart
+
+3.配置虚拟用户本地数据组用户登录3．1配置/etc/vsf">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo inatll">
-<meta property="og:url" content="http://yoursite.com/2015/06/03/hexo-inatll/index.html">
+<meta property="og:title" content="ftp虚拟用户配置">
+<meta property="og:url" content="http://yoursite.com/2015/06/04/ftp/index.html">
 <meta property="og:site_name" content="wsl_blog">
-<meta property="og:description" content="hexo加github搭建博客参考地址：http://www.cnblogs.com/zhcncn/p/4097881.htmlhttp://blog.fens.me/hexo-blog-github">
-<meta property="og:updated_time" content="2015-06-03T10:17:31.083Z">
+<meta property="og:description" content="1.yum安装FTP：
+
+yum install vsftpd pam db4 -y设置为系统服务：chkconfig –level 35 vsftpd on
+
+2.vsftpd 开启：
+
+/etc/init.d/vsftpd start 或者 service vsfptd start重启：service vsftpd restart
+
+3.配置虚拟用户本地数据组用户登录3．1配置/etc/vsf">
+<meta property="og:image" content="http://i.imgur.com/QEFETjM.png">
+<meta property="og:image" content="http://i.imgur.com/aIJjCcd.png">
+<meta property="og:image" content="http://i.imgur.com/9Bk779C.png">
+<meta property="og:image" content="http://i.imgur.com/xEbv7CD.png">
+<meta property="og:image" content="http://i.imgur.com/1njwiKd.png">
+<meta property="og:updated_time" content="2015-06-04T03:04:08.479Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo inatll">
-<meta name="twitter:description" content="hexo加github搭建博客参考地址：http://www.cnblogs.com/zhcncn/p/4097881.htmlhttp://blog.fens.me/hexo-blog-github">
+<meta name="twitter:title" content="ftp虚拟用户配置">
+<meta name="twitter:description" content="1.yum安装FTP：
+
+yum install vsftpd pam db4 -y设置为系统服务：chkconfig –level 35 vsftpd on
+
+2.vsftpd 开启：
+
+/etc/init.d/vsftpd start 或者 service vsfptd start重启：service vsftpd restart
+
+3.配置虚拟用户本地数据组用户登录3．1配置/etc/vsf">
   
     <link rel="alternative" href="/atom.xml" title="wsl_blog" type="application/atom+xml">
   
@@ -72,10 +101,10 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main"><article id="post-hexo-inatll" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-ftp" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/06/03/hexo-inatll/" class="article-date">
-  <time datetime="2015-06-03T10:14:20.000Z" itemprop="datePublished">2015-06-03</time>
+    <a href="/2015/06/04/ftp/" class="article-date">
+  <time datetime="2015-06-04T02:47:25.000Z" itemprop="datePublished">2015-06-04</time>
 </a>
     
   </div>
@@ -86,7 +115,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      hexo inatll
+      ftp虚拟用户配置
     </h1>
   
 
@@ -94,13 +123,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="hexo加github搭建博客">hexo加github搭建博客</h2><p>参考地址：<br><br><a href="http://blog.fens.me/hexo-blog-github" target="_blank" rel="external">http://www.cnblogs.com/zhcncn/p/4097881.html</a><br><a href="http://blog.fens.me/hexo-blog-github" target="_blank" rel="external">http://blog.fens.me/hexo-blog-github</a></p>
+        <p>1.yum安装FTP：</p>
+<blockquote>
+<p>yum install vsftpd pam<em> db4</em> -y<br><br>设置为系统服务：chkconfig –level 35 vsftpd on</p>
+</blockquote>
+<p>2.vsftpd 开启：</p>
+<blockquote>
+<p>/etc/init.d/vsftpd start 或者 service vsfptd start<br><br>重启：service vsftpd restart</p>
+</blockquote>
+<p>3.配置虚拟用户本地数据组用户登录<br>3．1配置/etc/vsftpd/vsftpd.conf<br><img src="http://i.imgur.com/QEFETjM.png" alt=""></p>
+<p>3．2配置 /etc/pam.d/vsftpd.vu<br><img src="http://i.imgur.com/aIJjCcd.png" alt=""></p>
+<p>3.3创建/etc/vstfpd/vcon文件目录，这下面放置两个文件和一个目录<br>文件vir_user 放用户/密码<br><img src="http://i.imgur.com/9Bk779C.png" alt=""></p>
+<p>使用vir_user.db 用命令执行：</p>
+<blockquote>
+<p>db_load -T -t hash -f /etc/vsftpd/vconf/vir_user /etc/vsftpd/vconf/vir_user.db</p>
+</blockquote>
+<p>3.4创建文件夹userlocal 里面放以用户命名的文件<br><img src="http://i.imgur.com/xEbv7CD.png" alt=""></p>
+<p>3.5需要注意的：<a href="http://dngood.blog.51cto.com/446195/1094079/" target="_blank" rel="external">http://dngood.blog.51cto.com/446195/1094079/ </a><br>报错：500 OOPS: bad bool value in config file for: anonymous_enable<br>需要修改，不能有空格：<br>在/etc/vsftpd/vconf/liufeng 编辑这个文件的时候不能有空格！<br><img src="http://i.imgur.com/1njwiKd.png" alt=""></p>
+<p>更详细的配置说明：<br><a href="http://bbs.51cto.com/thread-811192-1.html" target="_blank" rel="external">http://bbs.51cto.com/thread-811192-1.html</a></p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2015/06/03/hexo-inatll/" data-id="ciahlnz5j0002nwr34d9eb60l" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2015/06/04/ftp/" data-id="ciahlnz4c0000nwr3msy5xze1" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -112,15 +158,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/06/04/ftp/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">
-        
-          ftp虚拟用户配置
-        
-      </div>
-    </a>
   
+    <a href="/2015/06/03/hexo-inatll/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">hexo inatll</div>
+    </a>
   
 </nav>
 

@@ -4,19 +4,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>wsl_blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="wsl_blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="wsl_blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="wsl_blog">
 <meta name="twitter:description">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="wsl_blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -34,8 +34,12 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">wsl_blog</a>
       </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">�����ĸ��˲���</a>
+        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -69,6 +73,64 @@
     <div class="outer">
       <section id="main">
   
+    <article id="post-ftp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/06/04/ftp/" class="article-date">
+  <time datetime="2015-06-04T02:47:25.000Z" itemprop="datePublished">2015-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/04/ftp/">ftp虚拟用户配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.yum安装FTP：</p>
+<blockquote>
+<p>yum install vsftpd pam<em> db4</em> -y<br><br>设置为系统服务：chkconfig –level 35 vsftpd on</p>
+</blockquote>
+<p>2.vsftpd 开启：</p>
+<blockquote>
+<p>/etc/init.d/vsftpd start 或者 service vsfptd start<br><br>重启：service vsftpd restart</p>
+</blockquote>
+<p>3.配置虚拟用户本地数据组用户登录<br>3．1配置/etc/vsftpd/vsftpd.conf<br><img src="http://i.imgur.com/QEFETjM.png" alt=""></p>
+<p>3．2配置 /etc/pam.d/vsftpd.vu<br><img src="http://i.imgur.com/aIJjCcd.png" alt=""></p>
+<p>3.3创建/etc/vstfpd/vcon文件目录，这下面放置两个文件和一个目录<br>文件vir_user 放用户/密码<br><img src="http://i.imgur.com/9Bk779C.png" alt=""></p>
+<p>使用vir_user.db 用命令执行：</p>
+<blockquote>
+<p>db_load -T -t hash -f /etc/vsftpd/vconf/vir_user /etc/vsftpd/vconf/vir_user.db</p>
+</blockquote>
+<p>3.4创建文件夹userlocal 里面放以用户命名的文件<br><img src="http://i.imgur.com/xEbv7CD.png" alt=""></p>
+<p>3.5需要注意的：<a href="http://dngood.blog.51cto.com/446195/1094079/" target="_blank" rel="external">http://dngood.blog.51cto.com/446195/1094079/ </a><br>报错：500 OOPS: bad bool value in config file for: anonymous_enable<br>需要修改，不能有空格：<br>在/etc/vsftpd/vconf/liufeng 编辑这个文件的时候不能有空格！<br><img src="http://i.imgur.com/1njwiKd.png" alt=""></p>
+<p>更详细的配置说明：<br><a href="http://bbs.51cto.com/thread-811192-1.html" target="_blank" rel="external">http://bbs.51cto.com/thread-811192-1.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/06/04/ftp/" data-id="ciahlnz4c0000nwr3msy5xze1" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hexo-inatll" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/06/03/hexo-inatll/" class="article-date">
@@ -97,61 +159,12 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2015/06/03/hexo-inatll/" data-id="ciahjn0xt0000bor3n73gpd5j" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2015/06/03/hexo-inatll/" data-id="ciahlnz5j0002nwr34d9eb60l" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
 
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-python" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/05/07/python/" class="article-date">
-  <time datetime="2014-05-07T10:44:12.000Z" itemprop="datePublished">2014-05-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/日志/">日志</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/05/07/python/">新的开始</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是<strong>新的开始</strong>，我用hexo创建了第一篇文章。</p>
-<p>通过下面的命令，就可以创建新文章<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript\nodejs-hexo&#62;hexo new &#26032;&#30340;&#24320;&#22987;&#10;[info] File created at D:\workspace\javascript\nodejs-hexo\source\_posts\&#26032;&#30340;&#24320;&#22987;.md</span><br></pre></td></tr></table></figure></p>
-<p>感觉非常好。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://yoursite.com/2014/05/07/python/" data-id="ciahjn10d0002bor3oluo4zt7" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开始/">开始</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/我/">我</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日记/">日记</a></li></ul>
-
     </footer>
   </div>
   
@@ -165,37 +178,16 @@
       <aside id="sidebar">
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">分類</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/日志/">日志</a><span class="category-list-count">1</span></li></ul>
-    </div>
-  </div>
-
+  
+    
+  
+    
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">標簽</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/开始/">开始</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/我/">我</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日记/">日记</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">標簽雲</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/开始/" style="font-size: 10px;">开始</a> <a href="/tags/我/" style="font-size: 10px;">我</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">歸檔</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -207,11 +199,11 @@
       <ul>
         
           <li>
-            <a href="/2015/06/03/hexo-inatll/">hexo inatll</a>
+            <a href="/2015/06/04/ftp/">ftp虚拟用户配置</a>
           </li>
         
           <li>
-            <a href="/2014/05/07/python/">新的开始</a>
+            <a href="/2015/06/03/hexo-inatll/">hexo inatll</a>
           </li>
         
       </ul>
@@ -221,7 +213,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">友情鏈接</h3>
+    <h3 class="widget-title">友情链接</h3>
     <div class="widget">
       <ul>
         
@@ -262,7 +254,7 @@
 </nav>
   <!-- totop start -->
 <div id="totop">
-<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 </div>
 
 <!-- totop end -->
