@@ -4,17 +4,47 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | blog</title>
+  <title>ftp | blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="blog">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="1.yum安装FTP：
+
+yum install vsftpd pam db4 -y设置为系统服务：chkconfig –level 35 vsftpd on
+
+2.vsftpd 开启：
+
+/etc/init.d/vsftpd start 或者 service vsfptd start重启：service vsftpd restart
+
+3.配置虚拟用户本地数据组用户登录3．1配置/etc/vsf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ftp">
+<meta property="og:url" content="http://yoursite.com/2015/06/04/ftp/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description">
+<meta property="og:description" content="1.yum安装FTP：
+
+yum install vsftpd pam db4 -y设置为系统服务：chkconfig –level 35 vsftpd on
+
+2.vsftpd 开启：
+
+/etc/init.d/vsftpd start 或者 service vsfptd start重启：service vsftpd restart
+
+3.配置虚拟用户本地数据组用户登录3．1配置/etc/vsf">
+<meta property="og:image" content="http://i.imgur.com/QEFETjM.png">
+<meta property="og:image" content="http://i.imgur.com/aIJjCcd.png">
+<meta property="og:image" content="http://i.imgur.com/9Bk779C.png">
+<meta property="og:image" content="http://i.imgur.com/xEbv7CD.png">
+<meta property="og:image" content="http://i.imgur.com/1njwiKd.png">
+<meta property="og:updated_time" content="2015-06-04T03:19:07.090Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="ftp">
+<meta name="twitter:description" content="1.yum安装FTP：
+
+yum install vsftpd pam db4 -y设置为系统服务：chkconfig –level 35 vsftpd on
+
+2.vsftpd 开启：
+
+/etc/init.d/vsftpd start 或者 service vsfptd start重启：service vsftpd restart
+
+3.配置虚拟用户本地数据组用户登录3．1配置/etc/vsf">
   
     <link rel="alternative" href="/atom.xml" title="blog" type="application/atom+xml">
   
@@ -67,58 +97,78 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/06/04/ftp/" class="archive-article-date">
-  <time datetime="2015-06-04T03:18:14.000Z" itemprop="datePublished">6月 4</time>
+      <section id="main"><article id="post-ftp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/06/04/ftp/" class="article-date">
+  <time datetime="2015-06-04T03:18:14.000Z" itemprop="datePublished">2015-06-04</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/06/04/ftp/">ftp</a>
+    <h1 class="article-title" itemprop="name">
+      ftp
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/06/03/hexo-inatll/" class="archive-article-date">
-  <time datetime="2015-06-03T10:14:20.000Z" itemprop="datePublished">6月 3</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/06/03/hexo-inatll/">hexo inatll</a>
-    </h1>
-  
+        <p>1.yum安装FTP：</p>
+<blockquote>
+<p>yum install vsftpd pam<em> db4</em> -y<br><br>设置为系统服务：chkconfig –level 35 vsftpd on</p>
+</blockquote>
+<p>2.vsftpd 开启：</p>
+<blockquote>
+<p>/etc/init.d/vsftpd start 或者 service vsfptd start<br><br>重启：service vsftpd restart</p>
+</blockquote>
+<p>3.配置虚拟用户本地数据组用户登录<br>3．1配置/etc/vsftpd/vsftpd.conf<br><img src="http://i.imgur.com/QEFETjM.png" alt=""></p>
+<p>3．2配置 /etc/pam.d/vsftpd.vu<br><img src="http://i.imgur.com/aIJjCcd.png" alt=""></p>
+<p>3.3创建/etc/vstfpd/vcon文件目录，这下面放置两个文件和一个目录<br>文件vir_user 放用户/密码<br><img src="http://i.imgur.com/9Bk779C.png" alt=""></p>
+<p>使用vir_user.db 用命令执行：</p>
+<blockquote>
+<p>db_load -T -t hash -f /etc/vsftpd/vconf/vir_user /etc/vsftpd/vconf/vir_user.db</p>
+</blockquote>
+<p>3.4创建文件夹userlocal 里面放以用户命名的文件<br><img src="http://i.imgur.com/xEbv7CD.png" alt=""></p>
+<p>3.5需要注意的：<a href="http://dngood.blog.51cto.com/446195/1094079/" target="_blank" rel="external">http://dngood.blog.51cto.com/446195/1094079/ </a><br>报错：500 OOPS: bad bool value in config file for: anonymous_enable<br>需要修改，不能有空格：<br>在/etc/vsftpd/vconf/liufeng 编辑这个文件的时候不能有空格！<br><img src="http://i.imgur.com/1njwiKd.png" alt=""></p>
+<p>更详细的配置说明：<br><a href="http://bbs.51cto.com/thread-811192-1.html" target="_blank" rel="external">http://bbs.51cto.com/thread-811192-1.html</a></p>
+<p>categories:</p>
+<ul>
+<li>linux</li>
+</ul>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/06/04/ftp/" data-id="ciahm6xmv0000dsr3xzxspxf2" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/06/03/hexo-inatll/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">hexo inatll</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
 </section>
       
       <aside id="sidebar">
