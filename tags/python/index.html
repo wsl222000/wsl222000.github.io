@@ -4,26 +4,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ftp虚拟用户配置 | Jack Wu</title>
+  <title>Tag: python | Jack Wu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="yum安装FTP：
-yum install vsftpd pam db4 -y设置为系统服务：chkconfig –level 35 vsftpd on">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ftp虚拟用户配置">
-<meta property="og:url" content="http://wsl222000.github.io/2015/06/04/ftp/index.html">
+  <meta name="description" content="my blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jack Wu">
+<meta property="og:url" content="http://wsl222000.github.io/tags/python/index.html">
 <meta property="og:site_name" content="Jack Wu">
-<meta property="og:description" content="yum安装FTP：
-yum install vsftpd pam db4 -y设置为系统服务：chkconfig –level 35 vsftpd on">
-<meta property="og:image" content="http://i.imgur.com/QEFETjM.png">
-<meta property="og:image" content="http://i.imgur.com/aIJjCcd.png">
-<meta property="og:image" content="http://i.imgur.com/9Bk779C.png">
-<meta property="og:image" content="http://i.imgur.com/xEbv7CD.png">
-<meta property="og:image" content="http://i.imgur.com/1njwiKd.png">
-<meta property="og:updated_time" content="2015-06-04T07:00:53.735Z">
+<meta property="og:description" content="my blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ftp虚拟用户配置">
-<meta name="twitter:description" content="yum安装FTP：
-yum install vsftpd pam db4 -y设置为系统服务：chkconfig –level 35 vsftpd on">
+<meta name="twitter:title" content="Jack Wu">
+<meta name="twitter:description" content="my blog">
   
     <link rel="alternative" href="/atom.xml" title="Jack Wu" type="application/atom+xml">
   
@@ -80,14 +71,16 @@ yum install vsftpd pam db4 -y设置为系统服务：chkconfig –level 35 vsftp
   </div>
 </header>
     <div class="outer">
-      <section id="main"><article id="post-ftp" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main">
+  
+    <article id="post-python" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/06/04/ftp/" class="article-date">
-  <time datetime="2015-06-04T03:18:14.000Z" itemprop="datePublished">2015-06-04</time>
+    <a href="/2015/06/04/python/" class="article-date">
+  <time datetime="2015-06-04T08:49:00.000Z" itemprop="datePublished">2015-06-04</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/linux/">linux</a>
+    <a class="article-category-link" href="/categories/python/">python</a>
   </div>
 
   </div>
@@ -97,8 +90,8 @@ yum install vsftpd pam db4 -y设置为系统服务：chkconfig –level 35 vsftp
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      ftp虚拟用户配置
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/04/python/">python 读取文件</a>
     </h1>
   
 
@@ -106,68 +99,68 @@ yum install vsftpd pam db4 -y设置为系统服务：chkconfig –level 35 vsftp
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li>yum安装FTP：<blockquote>
-<p>yum install vsftpd pam<em> db4</em> -y<br><br>设置为系统服务：chkconfig –level 35 vsftpd on</p>
-</blockquote>
-</li>
-</ol>
-<a id="more"></a>
-<ol>
-<li><p>vsftpd 开启：</p>
-<blockquote>
-<p>/etc/init.d/vsftpd start 或者 service vsfptd start<br><br>重启：service vsftpd restart</p>
-</blockquote>
-</li>
-<li><p>配置虚拟用户本地数据组用户登录<br>3.1 配置/etc/vsftpd/vsftpd.conf<br><img src="http://i.imgur.com/QEFETjM.png" alt=""></p>
-</li>
-</ol>
-<p>3．2配置 /etc/pam.d/vsftpd.vu<br><img src="http://i.imgur.com/aIJjCcd.png" alt=""></p>
-<p>3.3创建/etc/vstfpd/vcon文件目录，这下面放置两个文件和一个目录<br>文件vir_user 放用户/密码<br><img src="http://i.imgur.com/9Bk779C.png" alt=""></p>
-<p>使用vir_user.db 用命令执行：</p>
-<blockquote>
-<p>db_load -T -t hash -f /etc/vsftpd/vconf/vir_user /etc/vsftpd/vconf/vir_user.db</p>
-</blockquote>
-<p>3.4创建文件夹userlocal 里面放以用户命名的文件<br><img src="http://i.imgur.com/xEbv7CD.png" alt=""></p>
-<p>3.5需要注意的：<a href="http://dngood.blog.51cto.com/446195/1094079/" target="_blank" rel="external">http://dngood.blog.51cto.com/446195/1094079/ </a><br>报错：500 OOPS: bad bool value in config file for: anonymous_enable<br>需要修改，不能有空格：<br>在/etc/vsftpd/vconf/liufeng 编辑这个文件的时候不能有空格！<br><img src="http://i.imgur.com/1njwiKd.png" alt=""></p>
-<p>更详细的配置说明：<br><a href="http://bbs.51cto.com/thread-811192-1.html" target="_blank" rel="external">http://bbs.51cto.com/thread-811192-1.html</a></p>
+        <h3 id="读取文件一行">读取文件一行</h3><pre>
+#!/usr/bin/python
+f=open('/etc/hosts')  
+line=f.readline()
+print line,
+f.close()
+</pre>
 
+<h3 id="读取整个文件">读取整个文件</h3><pre>
+#!/usr/bin/python
+import sys
+f=open('/etc/hosts')
+for line in f:
+  print line,  
+f.close()
+</pre>
+
+<pre>
+#!/usr/bin/python
+for i in open('/etc/hosts'):
+  print i,
+</pre>
+
+<pre>
+#!/usr/bin/python
+f=open('/etc/hosts')
+line=f.readline()
+while line:
+  print line,
+  line=f.readline()
+f.close()
+</pre>
+
+<h3 id="逐行读取">逐行读取</h3><pre>
+#!/usr/bin/python
+f=open('/etc/hosts')
+while 1:
+  line=f.readline()
+  print line,
+  if not line:
+    break
+</pre>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://wsl222000.github.io/2015/06/04/ftp/" data-id="ciahyln7t0000ccr386wow5if" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://wsl222000.github.io/2015/06/04/python/" data-id="ciahyln8p0004ccr3lj5d3l9q" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
 
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/2015/06/04/python/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">
-        
-          python 读取文件
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/06/03/hexo-inatll/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">hexo加github搭建博客</div>
-    </a>
-  
-</nav>
-
-  
 </article>
 
+
+  
+  
 </section>
       
       <aside id="sidebar">

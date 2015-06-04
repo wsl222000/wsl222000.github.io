@@ -4,7 +4,7 @@
   <subtitle><![CDATA[欢迎来到我的博客！]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://wsl222000.github.io/"/>
-  <updated>2015-06-04T07:00:53.735Z</updated>
+  <updated>2015-06-04T09:06:49.386Z</updated>
   <id>http://wsl222000.github.io/</id>
   
   <author>
@@ -13,6 +13,72 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[python 读取文件]]></title>
+    <link href="http://wsl222000.github.io/2015/06/04/python/"/>
+    <id>http://wsl222000.github.io/2015/06/04/python/</id>
+    <published>2015-06-04T08:49:00.000Z</published>
+    <updated>2015-06-04T09:06:49.386Z</updated>
+    <content type="html"><![CDATA[<h3 id="读取文件一行">读取文件一行</h3><pre>
+#!/usr/bin/python
+f=open('/etc/hosts')  
+line=f.readline()
+print line,
+f.close()
+</pre>
+
+<h3 id="读取整个文件">读取整个文件</h3><pre>
+#!/usr/bin/python
+import sys
+f=open('/etc/hosts')
+for line in f:
+  print line,  
+f.close()
+</pre>
+
+<pre>
+#!/usr/bin/python
+for i in open('/etc/hosts'):
+  print i,
+</pre>
+
+<pre>
+#!/usr/bin/python
+f=open('/etc/hosts')
+line=f.readline()
+while line:
+  print line,
+  line=f.readline()
+f.close()
+</pre>
+
+<h3 id="逐行读取">逐行读取</h3><pre>
+#!/usr/bin/python
+f=open('/etc/hosts')
+while 1:
+  line=f.readline()
+  print line,
+  if not line:
+    break
+</pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="读取文件一行">读取文件一行</h3><pre>
+#!/usr/bin/python
+f=open('/etc/hosts')  
+line=f.readline()
+print line,
+f.close()
+</pre>
+
+<h3 id="读取整个文件">读取]]>
+    </summary>
+    
+      <category term="python" scheme="http://wsl222000.github.io/tags/python/"/>
+    
+      <category term="python" scheme="http://wsl222000.github.io/categories/python/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[ftp虚拟用户配置]]></title>
@@ -61,16 +127,18 @@
   </entry>
   
   <entry>
-    <title><![CDATA[hexo inatll]]></title>
+    <title><![CDATA[hexo加github搭建博客]]></title>
     <link href="http://wsl222000.github.io/2015/06/03/hexo-inatll/"/>
     <id>http://wsl222000.github.io/2015/06/03/hexo-inatll/</id>
     <published>2015-06-03T10:14:20.000Z</published>
-    <updated>2015-06-03T10:17:31.083Z</updated>
-    <content type="html"><![CDATA[<h2 id="hexo加github搭建博客">hexo加github搭建博客</h2><p>参考地址：<br><br><a href="http://blog.fens.me/hexo-blog-github" target="_blank" rel="external">http://www.cnblogs.com/zhcncn/p/4097881.html</a><br><a href="http://blog.fens.me/hexo-blog-github" target="_blank" rel="external">http://blog.fens.me/hexo-blog-github</a></p>
+    <updated>2015-06-04T08:48:26.557Z</updated>
+    <content type="html"><![CDATA[<p>参考地址：<br><a href="http://blog.fens.me/hexo-blog-github" target="_blank" rel="external">http://www.cnblogs.com/zhcncn/p/4097881.html</a><br><a href="http://blog.fens.me/hexo-blog-github" target="_blank" rel="external">http://blog.fens.me/hexo-blog-github</a><br><a href="http://blog.lmintlcx.com/post/blog-with-hexo.html" title="使用Hexo搭建博客" target="_blank" rel="external">http://blog.lmintlcx.com/post/blog-with-hexo.html</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="hexo加github搭建博客">hexo加github搭建博客</h2><p>参考地址：<br><br><a href="http://blog.fens.me/hexo-blog-github" target="_blank" rel="external">h]]>
+    <![CDATA[<p>参考地址：<br><a href="http://blog.fens.me/hexo-blog-github" target="_blank" rel="external">http://www.cnblogs.com/zhcncn/p/4097881.html</a><b]]>
     </summary>
+    
+      <category term="博客" scheme="http://wsl222000.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
