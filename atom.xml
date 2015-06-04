@@ -4,7 +4,7 @@
   <subtitle><![CDATA[欢迎来到我的博客！]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://wsl222000.github.io/"/>
-  <updated>2015-06-04T09:06:49.386Z</updated>
+  <updated>2015-06-04T09:11:20.864Z</updated>
   <id>http://wsl222000.github.io/</id>
   
   <author>
@@ -19,8 +19,9 @@
     <link href="http://wsl222000.github.io/2015/06/04/python/"/>
     <id>http://wsl222000.github.io/2015/06/04/python/</id>
     <published>2015-06-04T08:49:00.000Z</published>
-    <updated>2015-06-04T09:06:49.386Z</updated>
-    <content type="html"><![CDATA[<h3 id="读取文件一行">读取文件一行</h3><pre>
+    <updated>2015-06-04T09:11:20.864Z</updated>
+    <content type="html"><![CDATA[<h3 id="读取文件一行">读取文件一行</h3><a id="more"></a>
+<pre>
 #!/usr/bin/python
 f=open('/etc/hosts')  
 line=f.readline()
@@ -63,18 +64,9 @@ while 1:
     break
 </pre>]]></content>
     <summary type="html">
-    <![CDATA[<h3 id="读取文件一行">读取文件一行</h3><pre>
-#!/usr/bin/python
-f=open('/etc/hosts')  
-line=f.readline()
-print line,
-f.close()
-</pre>
-
-<h3 id="读取整个文件">读取]]>
-    </summary>
+    <![CDATA[<h3 id="读取文件一行">读取文件一行</h3>]]>
     
-      <category term="python" scheme="http://wsl222000.github.io/tags/python/"/>
+    </summary>
     
       <category term="python" scheme="http://wsl222000.github.io/categories/python/"/>
     
@@ -85,15 +77,12 @@ f.close()
     <link href="http://wsl222000.github.io/2015/06/04/ftp/"/>
     <id>http://wsl222000.github.io/2015/06/04/ftp/</id>
     <published>2015-06-04T03:18:14.000Z</published>
-    <updated>2015-06-04T07:00:53.735Z</updated>
+    <updated>2015-06-04T09:11:33.940Z</updated>
     <content type="html"><![CDATA[<ol>
 <li>yum安装FTP：<blockquote>
 <p>yum install vsftpd pam<em> db4</em> -y<br><br>设置为系统服务：chkconfig –level 35 vsftpd on</p>
-</blockquote>
+<a id="more"></a></blockquote>
 </li>
-</ol>
-<a id="more"></a>
-<ol>
 <li><p>vsftpd 开启：</p>
 <blockquote>
 <p>/etc/init.d/vsftpd start 或者 service vsfptd start<br><br>重启：service vsftpd restart</p>
@@ -115,10 +104,7 @@ f.close()
     <summary type="html">
     <![CDATA[<ol>
 <li>yum安装FTP：<blockquote>
-<p>yum install vsftpd pam<em> db4</em> -y<br><br>设置为系统服务：chkconfig –level 35 vsftpd on</p>
-</blockquote>
-</li>
-</ol>]]>
+<p>yum install vsftpd pam<em> db4</em> -y<br><br>设置为系统服务：chkconfig –level 35 vsftpd on</p>]]>
     
     </summary>
     
