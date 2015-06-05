@@ -6,16 +6,16 @@
   
   <title>python 文件存在则输出 | Jack Wu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="123456789101112#!/usr/bin/pythonimport os&amp;lt;!--more--&amp;gt;while 1:  filename=raw_input(&apos;Input:&apos;)  if not os.path.exists(filename):    print filename, &apos;is not exist!&apos;  else:    print &apos;file is exist!&apos;">
+  <meta name="description" content="输出文件内容">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python 文件存在则输出">
 <meta property="og:url" content="http://wsl222000.github.io/2015/06/05/python2/index.html">
 <meta property="og:site_name" content="Jack Wu">
-<meta property="og:description" content="123456789101112#!/usr/bin/pythonimport os&amp;lt;!--more--&amp;gt;while 1:  filename=raw_input(&apos;Input:&apos;)  if not os.path.exists(filename):    print filename, &apos;is not exist!&apos;  else:    print &apos;file is exist!&apos;">
-<meta property="og:updated_time" content="2015-06-05T03:29:50.889Z">
+<meta property="og:description" content="输出文件内容">
+<meta property="og:updated_time" content="2015-06-05T03:37:16.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 文件存在则输出">
-<meta name="twitter:description" content="123456789101112#!/usr/bin/pythonimport os&amp;lt;!--more--&amp;gt;while 1:  filename=raw_input(&apos;Input:&apos;)  if not os.path.exists(filename):    print filename, &apos;is not exist!&apos;  else:    print &apos;file is exist!&apos;">
+<meta name="twitter:description" content="输出文件内容">
   
     <link rel="alternative" href="/atom.xml" title="Jack Wu" type="application/atom+xml">
   
@@ -98,13 +98,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">import <span class="built_in">os</span></span><br><span class="line">&lt;!<span class="comment">--more--&gt;</span></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">  filename=raw_input(<span class="string">'Input:'</span>)</span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">os</span>.path.exists(filename):</span><br><span class="line">    <span class="built_in">print</span> filename, <span class="string">'is not exist!'</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">'file is exist!'</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> open(filename):</span><br><span class="line">      <span class="built_in">print</span> line,</span><br><span class="line">    <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+        <p>输出文件内容<br><a id="more"></a><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">import os</span><br><span class="line">while <span class="number">1</span>:</span><br><span class="line">  filename=<span class="function"><span class="title">raw_input</span><span class="params">(<span class="string">'Input:'</span>)</span></span></span><br><span class="line">  <span class="keyword">if</span> not os<span class="class">.path</span><span class="class">.exists</span>(filename):</span><br><span class="line">    print filename, <span class="string">'is not exist!'</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    print <span class="string">'file is exist!'</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> <span class="function"><span class="title">open</span><span class="params">(filename)</span></span>:</span><br><span class="line">      print line,</span><br><span class="line">    break</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">import os</span><br><span class="line">while <span class="number">1</span>:</span><br><span class="line">  filename=<span class="function"><span class="title">raw_input</span><span class="params">(<span class="string">'Input:'</span>)</span></span></span><br><span class="line">  <span class="keyword">if</span> os<span class="class">.path</span><span class="class">.exists</span>(filename):</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> <span class="function"><span class="title">open</span><span class="params">(filename)</span></span>:</span><br><span class="line">      print line,</span><br><span class="line">    break</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    print filename, <span class="string">'is not exist!'</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://wsl222000.github.io/2015/06/05/python2/" data-id="ciaj2021s0004z8r3fa99ed58" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://wsl222000.github.io/2015/06/05/python2/" data-id="ciaj29mdo0004dkr3w513i3wr" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
