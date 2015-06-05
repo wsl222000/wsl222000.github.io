@@ -4,7 +4,7 @@
   <subtitle><![CDATA[欢迎来到我的博客！]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://wsl222000.github.io/"/>
-  <updated>2015-06-05T07:02:17.644Z</updated>
+  <updated>2015-06-05T07:04:40.126Z</updated>
   <id>http://wsl222000.github.io/</id>
   
   <author>
@@ -15,21 +15,23 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title><![CDATA[python 显示目录内容]]></title>
     <link href="http://wsl222000.github.io/2015/06/05/python3/"/>
     <id>http://wsl222000.github.io/2015/06/05/python3/</id>
-    <published>2015-06-05T07:02:17.644Z</published>
-    <updated>2015-06-05T07:02:17.644Z</updated>
-    <content type="html"><![CDATA[<p>title: python3<br>date: 2015-06-05 14:47:43<br>tags:<br>categories: python<br>显示目录里面的内容<br><a id="more"></a><br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">import <span class="built_in">os</span>, <span class="built_in">string</span>, sys</span><br><span class="line">dir=<span class="string">'/tmp'</span></span><br><span class="line">files=<span class="built_in">os</span>.listdir(dir)</span><br><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> files:</span><br><span class="line">  <span class="built_in">print</span> dir+<span class="built_in">os</span>.sep+d</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">import os</span><br><span class="line"><span class="keyword">dir</span>='/tmp'</span><br><span class="line">files=os.listdir(<span class="keyword">dir</span>)</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">d</span> <span class="keyword">in</span> files:</span><br><span class="line">  <span class="keyword">print</span> <span class="literal">d</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">import os</span><br><span class="line">dir=<span class="string">'/tmp'</span></span><br><span class="line"><span class="keyword">for</span> <span class="tag">i</span> <span class="keyword">in</span> os.<span class="function"><span class="title">listdir</span><span class="params">(dir)</span></span>:</span><br><span class="line">  print i</span><br></pre></td></tr></table></figure>
-<p>遍历目录<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">import os, string, sys</span><br><span class="line">dir=<span class="string">'/tmp'</span></span><br><span class="line"><span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.<span class="function"><span class="title">walk</span><span class="params">(dir)</span></span>:   </span><br><span class="line">  <span class="keyword">for</span> name <span class="keyword">in</span> files:   </span><br><span class="line">    print os<span class="class">.path</span><span class="class">.join</span>(root, name)</span><br></pre></td></tr></table></figure></p>
+    <published>2015-06-05T06:47:43.000Z</published>
+    <updated>2015-06-05T07:04:40.126Z</updated>
+    <content type="html"><![CDATA[<p>显示目录里面的内容<br><a id="more"></a><br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">import <span class="built_in">os</span>, <span class="built_in">string</span>, sys</span><br><span class="line">dir=<span class="string">'/tmp'</span></span><br><span class="line">files=<span class="built_in">os</span>.listdir(dir)</span><br><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> files:</span><br><span class="line">  <span class="built_in">print</span> dir+<span class="built_in">os</span>.sep+d</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="reserved">import</span> os</span><br><span class="line">dir=<span class="string">'/tmp'</span></span><br><span class="line">files=os.listdir(dir)</span><br><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> <span class="attribute">files</span>:</span><br><span class="line">  <span class="built_in">print</span> d</span><br><span class="line">`<span class="javascript"></span>``<span class="javascript"></span></span><br></pre></td></tr></table></figure>
+<h1 id="!/usr/bin/python">!/usr/bin/python</h1><p>import os<br>dir=’/tmp’<br>for i in os.listdir(dir):<br>  print i<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">遍历目录</span><br></pre></td></tr></table></figure></p>
+<h1 id="!/usr/bin/python-1">!/usr/bin/python</h1><p>import os, string, sys<br>dir=’/tmp’<br>for root, dirs, files in os.walk(dir):<br>  for name in files:<br>    print os.path.join(root, name)<br>```</p>
 <p>import glob<br>filelist = glob.glob(‘<em>.jpg’) + glob.glob(‘</em>.gif’)<br>print filelist<br>详细出处参考：<a href="http://www.jb51.net/article/26537.htm" target="_blank" rel="external">http://www.jb51.net/article/26537.htm</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>title: python3<br>date: 2015-06-05 14:47:43<br>tags:<br>categories: python<br>显示目录里面的内容<br>]]>
+    <![CDATA[<p>显示目录里面的内容<br>]]>
     
     </summary>
+    
+      <category term="python" scheme="http://wsl222000.github.io/categories/python/"/>
     
   </entry>
   
