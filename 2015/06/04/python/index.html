@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://wsl222000.github.io/2015/06/04/python/index.html">
 <meta property="og:site_name" content="Jack Wu">
 <meta property="og:description" content="读取文件一行">
-<meta property="og:updated_time" content="2015-06-04T09:37:32.364Z">
+<meta property="og:updated_time" content="2015-06-05T03:29:48.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 读取文件">
 <meta name="twitter:description" content="读取文件一行">
@@ -99,53 +99,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="读取文件一行">读取文件一行</h3><a id="more"></a>
-<pre>
-#!/usr/bin/python
-f=open('/etc/hosts')  
-line=f.readline()
-print line,
-f.close()
-</pre>
-
-<h3 id="读取整个文件">读取整个文件</h3><pre>
-#!/usr/bin/python
-import sys
-f=open('/etc/hosts')
-for line in f:
-  print line,  
-f.close()
-</pre>
-
-<pre>
-#!/usr/bin/python
-for i in open('/etc/hosts'):
-  print i,
-</pre>
-
-<pre>
-#!/usr/bin/python
-f=open('/etc/hosts')
-line=f.readline()
-while line:
-  print line,
-  line=f.readline()
-f.close()
-</pre>
-
-<h3 id="逐行读取">逐行读取</h3><pre>
-#!/usr/bin/python
-f=open('/etc/hosts')
-while 1:
-  line=f.readline()
-  print line,
-  if not line:
-    break
-</pre>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">f=<span class="function"><span class="title">open</span><span class="params">(<span class="string">'/etc/hosts'</span>)</span></span>  </span><br><span class="line">line=f.<span class="function"><span class="title">readline</span><span class="params">()</span></span></span><br><span class="line">print line,</span><br><span class="line">f.<span class="function"><span class="title">close</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="读取整个文件">读取整个文件</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">import sys</span><br><span class="line">f=<span class="function"><span class="title">open</span><span class="params">(<span class="string">'/etc/hosts'</span>)</span></span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">  print line,  </span><br><span class="line">f.<span class="function"><span class="title">close</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"><span class="keyword">for</span> <span class="tag">i</span> <span class="keyword">in</span> <span class="function"><span class="title">open</span><span class="params">(<span class="string">'/etc/hosts'</span>)</span></span>:</span><br><span class="line">  print <span class="tag">i</span>,</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">f=<span class="function"><span class="title">open</span><span class="params">(<span class="string">'/etc/hosts'</span>)</span></span></span><br><span class="line">line=f.<span class="function"><span class="title">readline</span><span class="params">()</span></span></span><br><span class="line">while line:</span><br><span class="line">  print line,</span><br><span class="line">  line=f.<span class="function"><span class="title">readline</span><span class="params">()</span></span></span><br><span class="line">f.<span class="function"><span class="title">close</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="逐行读取">逐行读取</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line">f=<span class="built_in">open</span>(<span class="string">'/etc/hosts'</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">  <span class="built_in">line</span>=f.readline()</span><br><span class="line">  print <span class="built_in">line</span>,</span><br><span class="line">  <span class="keyword">if</span> <span class="operator">not</span> <span class="built_in">line</span>:</span><br><span class="line">    break</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://wsl222000.github.io/2015/06/04/python/" data-id="ciaj1hl210007ckr32me6yqvk" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://wsl222000.github.io/2015/06/04/python/" data-id="ciaj2021w0007z8r3g71xliy7" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
