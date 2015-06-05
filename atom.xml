@@ -4,7 +4,7 @@
   <subtitle><![CDATA[欢迎来到我的博客！]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://wsl222000.github.io/"/>
-  <updated>2015-06-05T09:20:48.611Z</updated>
+  <updated>2015-06-05T09:25:41.554Z</updated>
   <id>http://wsl222000.github.io/</id>
   
   <author>
@@ -19,9 +19,9 @@
     <link href="http://wsl222000.github.io/2015/06/05/zabbix/"/>
     <id>http://wsl222000.github.io/2015/06/05/zabbix/</id>
     <published>2015-06-05T08:22:22.000Z</published>
-    <updated>2015-06-05T09:20:48.611Z</updated>
+    <updated>2015-06-05T09:25:41.554Z</updated>
     <content type="html"><![CDATA[<ul>
-<li>安装参考：<br><a href="http://bguncle.blog.51cto.com/3184079/1330247" target="_blank" rel="external">http://bguncle.blog.51cto.com/3184079/1330247</a><a id="more"></a></li>
+<li>安装参考：<br><a href="http://bguncle.blog.51cto.com/3184079/1330247" title="blog" target="_blank" rel="external">blog</a><a id="more"></a></li>
 <li><p>zabbix配置报警设置：<br><a href="http://www.centoscn.com/CentosServer/log/2013/0807/1168.html" target="_blank" rel="external">http://www.centoscn.com/CentosServer/log/2013/0807/1168.html</a><br><a href="http://waringid.blog.51cto.com/65148/1142579" target="_blank" rel="external">http://waringid.blog.51cto.com/65148/1142579</a></p>
 </li>
 <li><p>自定义脚本位置</p>
@@ -33,7 +33,7 @@
 ]]></content>
     <summary type="html">
     <![CDATA[<ul>
-<li>安装参考：<br><a href="http://bguncle.blog.51cto.com/3184079/1330247">http://bguncle.blog.51cto.com/3184079/1330247</a>]]>
+<li>安装参考：<br><a href="http://bguncle.blog.51cto.com/3184079/1330247" title="blog">blog</a>]]>
     
     </summary>
     
