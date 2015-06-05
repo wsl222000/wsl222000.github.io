@@ -4,7 +4,7 @@
   <subtitle><![CDATA[欢迎来到我的博客！]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://wsl222000.github.io/"/>
-  <updated>2015-06-04T09:37:32.364Z</updated>
+  <updated>2015-06-05T03:15:09.197Z</updated>
   <id>http://wsl222000.github.io/</id>
   
   <author>
@@ -13,6 +13,21 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[python 文件存在则输出]]></title>
+    <link href="http://wsl222000.github.io/2015/06/05/python2/"/>
+    <id>http://wsl222000.github.io/2015/06/05/python2/</id>
+    <published>2015-06-05T03:13:44.000Z</published>
+    <updated>2015-06-05T03:15:09.197Z</updated>
+    <content type="html"><![CDATA[<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">import os</span><br><span class="line">while <span class="number">1</span>:</span><br><span class="line">  filename=<span class="function"><span class="title">raw_input</span><span class="params">(<span class="string">'Input:'</span>)</span></span></span><br><span class="line">  <span class="keyword">if</span> not os<span class="class">.path</span><span class="class">.exists</span>(filename):</span><br><span class="line">    print filename, <span class="string">'is not exist!'</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    print <span class="string">'file is exist!'</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> <span class="function"><span class="title">open</span><span class="params">(filename)</span></span>:</span><br><span class="line">      print line,</span><br><span class="line">    break</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#!/usr/bin/python</span><br><span class="line">import os</span><br><span class="line">while <span class="number">1</span>:</span><br><span class="line">  filename=<span class="function"><span class="title">raw_input</span><span class="params">(<span class="string">'Input:'</span>)</span></span></span><br><span class="line">  <span class="keyword">if</span> os<span class="class">.path</span><span class="class">.exists</span>(filename):</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> <span class="function"><span class="title">open</span><span class="params">(filename)</span></span>:</span><br><span class="line">      print line,</span><br><span class="line">    break</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    print filename, <span class="string">'is not exist!'</span></span><br></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span clas]]>
+    </summary>
+    
+      <category term="python" scheme="http://wsl222000.github.io/categories/python/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[python 读取文件]]></title>
