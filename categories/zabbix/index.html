@@ -4,18 +4,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>python 显示目录内容 | Jack Wu</title>
+  <title>Category: zabbix | Jack Wu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="显示目录里面的内容">
-<meta property="og:type" content="article">
-<meta property="og:title" content="python 显示目录内容">
-<meta property="og:url" content="http://wsl222000.github.io/2015/06/05/python3/index.html">
+  <meta name="description" content="my blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jack Wu">
+<meta property="og:url" content="http://wsl222000.github.io/categories/zabbix/index.html">
 <meta property="og:site_name" content="Jack Wu">
-<meta property="og:description" content="显示目录里面的内容">
-<meta property="og:updated_time" content="2015-06-05T07:45:03.265Z">
+<meta property="og:description" content="my blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python 显示目录内容">
-<meta name="twitter:description" content="显示目录里面的内容">
+<meta name="twitter:title" content="Jack Wu">
+<meta name="twitter:description" content="my blog">
   
     <link rel="alternative" href="/atom.xml" title="Jack Wu" type="application/atom+xml">
   
@@ -72,14 +71,16 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main"><article id="post-python3" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main">
+  
+    <article id="post-zabbix" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/06/05/python3/" class="article-date">
-  <time datetime="2015-06-05T06:47:43.000Z" itemprop="datePublished">2015-06-05</time>
+    <a href="/2015/06/05/zabbix/" class="article-date">
+  <time datetime="2015-06-05T08:22:22.000Z" itemprop="datePublished">2015-06-05</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/python/">python</a>
+    <a class="article-category-link" href="/categories/zabbix/">zabbix</a>
   </div>
 
   </div>
@@ -89,8 +90,8 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      python 显示目录内容
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/05/zabbix/">zabbix笔记</a>
     </h1>
   
 
@@ -98,17 +99,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>显示目录里面的内容<br><a id="more"></a><br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">import <span class="built_in">os</span>, <span class="built_in">string</span>, sys</span><br><span class="line">dir=<span class="string">'/tmp'</span></span><br><span class="line">files=<span class="built_in">os</span>.listdir(dir)</span><br><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> files:</span><br><span class="line">  <span class="built_in">print</span> dir+<span class="built_in">os</span>.sep+d</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">import os</span><br><span class="line"><span class="keyword">dir</span>='/tmp'</span><br><span class="line">files=os.listdir(<span class="keyword">dir</span>)</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">d</span> <span class="keyword">in</span> files:</span><br><span class="line">  <span class="keyword">print</span> <span class="literal">d</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">import os</span><br><span class="line">dir=<span class="string">'/tmp'</span></span><br><span class="line"><span class="keyword">for</span> <span class="tag">i</span> <span class="keyword">in</span> os.<span class="function"><span class="title">listdir</span><span class="params">(dir)</span></span>:</span><br><span class="line">  print i</span><br></pre></td></tr></table></figure>
-<p>遍历目录<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">import os, string, sys</span><br><span class="line">dir=<span class="string">'/tmp'</span></span><br><span class="line"><span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.<span class="function"><span class="title">walk</span><span class="params">(dir)</span></span>:</span><br><span class="line">  <span class="keyword">for</span> name <span class="keyword">in</span> files:</span><br><span class="line">    print os<span class="class">.path</span><span class="class">.join</span>(root, name)</span><br></pre></td></tr></table></figure></p>
-<p>import glob<br>filelist = glob.glob(‘<em>.jpg’) + glob.glob(‘</em>.gif’)<br>print filelist<br>详细出处参考：<a href="http://www.jb51.net/article/26537.htm" target="_blank" rel="external">http://www.jb51.net/article/26537.htm</a></p>
-
+        <ul>
+<li>安装参考：<br><a href="http://bguncle.blog.51cto.com/3184079/1330247">http://bguncle.blog.51cto.com/3184079/1330247</a>
+        
+          <p class="article-more-link">
+            <a href="/2015/06/05/zabbix/#more">阅读全文</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://wsl222000.github.io/2015/06/05/python3/" data-id="ciajcta1p0007f0r3hahkr4sp" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://wsl222000.github.io/2015/06/05/zabbix/" data-id="ciajcta1j0004f0r3bwre8j37" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -117,29 +119,11 @@
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/2015/06/05/zabbix/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">
-        
-          zabbix笔记
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/06/05/python2/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">python 文件存在则输出</div>
-    </a>
-  
-</nav>
-
-  
 </article>
 
+
+  
+  
 </section>
       
       <aside id="sidebar">
