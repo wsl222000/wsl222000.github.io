@@ -4,7 +4,7 @@
   <subtitle><![CDATA[欢迎来到我的博客！]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://wsl222000.github.io/"/>
-  <updated>2015-06-08T02:16:48.709Z</updated>
+  <updated>2015-06-17T06:42:27.730Z</updated>
   <id>http://wsl222000.github.io/</id>
   
   <author>
@@ -13,6 +13,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[一场戏]]></title>
+    <link href="http://wsl222000.github.io/2015/06/17/article/"/>
+    <id>http://wsl222000.github.io/2015/06/17/article/</id>
+    <published>2015-06-17T06:27:18.000Z</published>
+    <updated>2015-06-17T06:42:27.730Z</updated>
+    <content type="html"><![CDATA[<p>我梦见一个大戏台。</p>
+<p>　　戏台上晃晃悠悠地出现好几个大将军。他们穿着鲜亮耀眼的盔甲，一枚枚鲜衣怒马，宛若神人。然后，就看他们打将了起来，吆喝声新奇尖响，仿佛真要开天辟地了。再然后，看他们的盔甲一点点地化掉，露出了跟我们一样的肉身。</p>
+<p>　　原来，那盔甲是冰做的。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>我梦见一个大戏台。</p>
+<p>　　戏台上晃晃悠悠地出现好几个大将军。他们穿着鲜亮耀眼的盔甲，一枚枚鲜衣怒马，宛若神人。然后，就看他们打将了起来，吆喝声新奇尖响，仿佛真要开天辟地了。再然后，看他们的盔甲一点点地化掉，露出了跟我们一样的肉身。</p>
+<p>　　原来，那盔甲]]>
+    </summary>
+    
+      <category term="随笔" scheme="http://wsl222000.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[zabbix笔记]]></title>
