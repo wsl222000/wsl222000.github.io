@@ -4,7 +4,7 @@
   <subtitle><![CDATA[欢迎来到我的博客！]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://wsl222000.github.io/"/>
-  <updated>2016-08-24T03:22:46.923Z</updated>
+  <updated>2016-08-24T03:40:22.811Z</updated>
   <id>http://wsl222000.github.io/</id>
   
   <author>
@@ -15,17 +15,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[824]]></title>
+    <title><![CDATA[MySQL5.6基于GTID的主从复制配置]]></title>
     <link href="http://wsl222000.github.io/2016/08/24/824/"/>
     <id>http://wsl222000.github.io/2016/08/24/824/</id>
     <published>2016-08-24T02:58:02.000Z</published>
-    <updated>2016-08-24T03:22:46.923Z</updated>
+    <updated>2016-08-24T03:40:22.811Z</updated>
     <content type="html"><![CDATA[<p>GTID简介：<br>全局事务标示符（Global Transactions Identifier）是MySQL 5.6复制的一个新特性。<br>GTID实际上是由UUID+TID组成的。其中UUID是一个MySQL实例的唯一标识。TID代表了该实例上已经提交的事务数量，并且随着事务提交单调递增。下面是一个GTID的具体形式。<br>1、在MySQL5.6以前对于主从复制出现问题有时候需要你分析BINLOG找到POS点,然后在CHANG MASTER TO.对于新手来说很容易犯错,造成主从复制错误.在新版本中,不必在需要寻找BINLOG和POS点,你只需要知道MASTER的IP、密码、端口就可以,因为MySQL会从内部GTID机制自动找到同步点.<br>2、多线程复制,在MySQL5.6之前,复制是单线程队列式的,只能一个一个运行.在新版中支持基于库的多线程复制,但是库里的表不能多线程.</p>
 <a id="more"></a>
-<p>主MySQL配置文件修改：<br>server-id=185 #和从MySQL不同<br>log-bin=mysql-bin<br>expire-logs-days=14    #二进制日志周期（按需配置）<br>binlog-format=row    #使用row格式<br>log-slave-updates=true<br>gtid-mode=on    #开启GTID模式<br>slave_parallel_workers=4           #开启基于库的多线程复制默认0不开启<br>enforce-gtid-consistency=true     #强制GTID的一致性<br>master-info-repository=TABLE     #主服信息记录库=表/文件<br>relay-log-info-repository=TABLE   #中继日志信息记录库<br>sync-master-info=1                #同步主库信息<br>innodb_file_per_table=1    #使用独立表空间</p>
-<p>主MySQL创建复制账号：<br>grant replication slave,replication client on <em>.</em> to ‘repl’@’10.205.22.186’ identified by ‘password’;<br>flush privileges;</p>
-<p>从MySQL配置文件修改：<br>server-id=186 #和主MySQL不同<br>log-bin=mysql-bin<br>expire-logs-days=14    #二进制日志周期（按需配置）<br>binlog-format=row    #使用row格式<br>log-slave-updates=true<br>gtid-mode=on    #开启GTID模式<br>slave_parallel_workers=4           #开启基于库的多线程复制默认0不开启<br>enforce-gtid-consistency=true     #强制GTID的一致性<br>master-info-repository=TABLE     #主服信息记录库=表/文件<br>relay-log-info-repository=TABLE   #中继日志信息记录库<br>sync-master-info=1                #同步主库信息<br>innodb_file_per_table=1    #使用独立表空间</p>
-<p>从MySQL执行：<br>change master to master_host=’10.205.22.185’,master_port=3306,master_user=’repl’,master_password=’password’,MASTER_AUTO_POSITION=1;<br>start slave;</p>
+<p><code>主MySQL配置文件修改：
+server-id=185 #和从MySQL不同
+log-bin=mysql-bin
+expire-logs-days=14    #二进制日志周期（按需配置）
+binlog-format=row    #使用row格式
+log-slave-updates=true
+gtid-mode=on    #开启GTID模式
+slave_parallel_workers=4           #开启基于库的多线程复制默认0不开启 
+enforce-gtid-consistency=true     #强制GTID的一致性
+master-info-repository=TABLE     #主服信息记录库=表/文件
+relay-log-info-repository=TABLE   #中继日志信息记录库
+sync-master-info=1                #同步主库信息
+innodb_file_per_table=1    #使用独立表空间</code></p>
+<p>主MySQL创建复制账号：<br><code>grant replication slave,replication client on *.* to &#39;repl&#39;@&#39;10.205.22.186&#39; identified by &#39;password&#39;;
+flush privileges;</code></p>
+<p>从MySQL配置文件修改：<br><code>server-id=186 #和主MySQL不同
+log-bin=mysql-bin
+expire-logs-days=14    #二进制日志周期（按需配置）
+binlog-format=row    #使用row格式
+log-slave-updates=true
+gtid-mode=on    #开启GTID模式
+slave_parallel_workers=4           #开启基于库的多线程复制默认0不开启 
+enforce-gtid-consistency=true     #强制GTID的一致性
+master-info-repository=TABLE     #主服信息记录库=表/文件
+relay-log-info-repository=TABLE   #中继日志信息记录库
+sync-master-info=1                #同步主库信息
+innodb_file_per_table=1    #使用独立表空间</code></p>
+<p>从MySQL执行：<br><code>change master to master_host=&#39;10.205.22.185&#39;,master_port=3306,master_user=&#39;repl&#39;,master_password=&#39;password&#39;,MASTER_AUTO_POSITION=1;
+start slave;</code></p>
 <p>在主MySQL写入数据，查从MySQL是否同步成功</p>
 ]]></content>
     <summary type="html">
@@ -34,6 +59,8 @@
     </summary>
     
       <category term="MySQL" scheme="http://wsl222000.github.io/tags/MySQL/"/>
+    
+      <category term="MySQL" scheme="http://wsl222000.github.io/categories/MySQL/"/>
     
   </entry>
   
