@@ -73,6 +73,60 @@
     <div class="outer">
       <section id="main">
   
+    <article id="post-keepalived" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/24/keepalived/" class="article-date">
+  <time datetime="2016-08-24T07:09:14.000Z" itemprop="datePublished">2016-08-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/24/keepalived/">keepalived实现nginx的高可用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.使用yum安装keepalived<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> keepalived -y</span><br></pre></td></tr></table></figure></p>
+<p>2.修改配置文件keepalived.conf</p>
+<p>主服务器配置文件<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">global_defs &#123;</span><br><span class="line">    router_id NodeA</span><br><span class="line">&#125;</span><br><span class="line">vrrp_script check_run &#123;</span><br><span class="line">    script <span class="string">"/etc/keepalived/check_nginx.sh"</span>　　<span class="comment">#自定义检查nginx的脚本</span></span><br><span class="line">    interval <span class="number">2</span></span><br><span class="line">    weight <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    <span class="keyword">state</span> MASTER    <span class="comment">#设置为主服务器</span></span><br><span class="line">    interface eth0  <span class="comment">#监测网络接口</span></span><br><span class="line">    virtual_router_id <span class="number">51</span>  <span class="comment">#虚拟路由标识，主、备必须一样</span></span><br><span class="line">    priority <span class="number">100</span>   <span class="comment">#(主、备机取不同的优先级,主机值较大,备份机值较小,值越大优先级越高)</span></span><br><span class="line">    advert_int <span class="number">1</span>   <span class="comment">#VRRP Multicast广播周期秒数</span></span><br><span class="line">    nopreempt <span class="comment">#恢复后也不抢占资源</span></span><br><span class="line">    authentication &#123;</span><br><span class="line">    auth_type PASS  <span class="comment">#VRRP认证方式，主备必须一致</span></span><br><span class="line">    auth_pass <span class="number">1111</span>   <span class="comment">#(密码)</span></span><br><span class="line">    &#125;</span><br><span class="line">    track_script &#123;</span><br><span class="line">        check_run</span><br><span class="line">    &#125;</span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">    　　虚拟IP/掩码 <span class="comment">#VRRP HA虚拟地址</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>检查nginx服务状态的脚本，check_nginx.sh<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line">netstat -npl|grep -q nginx</span><br><span class="line"><span class="keyword">if</span> [[ $? <span class="operator">-ne</span> <span class="number">0</span> ]]; <span class="keyword">then</span></span><br><span class="line">  /usr/<span class="built_in">local</span>/nginx/sbin/nginx</span><br><span class="line">  <span class="keyword">if</span> [[ $? <span class="operator">-ne</span> <span class="number">0</span> ]]; <span class="keyword">then</span></span><br><span class="line">    service keepalived stop</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">备用服务器配置文件</span><br></pre></td></tr></table></figure></p>
+<p>global_defs {<br>    router_id NodeB<br>}<br>vrrp_script check_run{<br>    script “/etc/keepalived/check_nginx.sh”<br>    interval 2<br>    weight 2<br>}<br>vrrp_instance VI_1 {<br>    state BACKUP    #设置为备服务器<br>    interface eth0  #监测网络接口<br>    virtual_router_id 51  #虚拟路由标识，主、备必须一样<br>    priority 90   #(主、备机取不同的优先级,主机值较大,备份机值较小,值越大优先级越高)<br>    advert_int 1   #VRRP Multicast广播周期秒数<br>    nopreempt #恢复后也不抢占资源<br>    authentication {<br>    auth_type PASS  #VRRP认证方式，主备必须一致<br>    auth_pass 1111   #(密码)<br>    }<br>    track_script {<br>        check_run<br>    }<br>    virtual_ipaddress {<br>    　　虚拟IP/掩码  #VRRP HA虚拟地址<br>    }<br>}<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3.主、备服务器启动keepalived和nginx服务</span><br></pre></td></tr></table></figure></p>
+<p> /etc/init.d/keepalived start<br> /etc/init.d/nginx start<br> <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看主服务器虚拟<span class="literal">IP</span>是否存在</span><br></pre></td></tr></table></figure></p>
+<p>ip addr<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">关闭主服务器的keepalived服务，测试虚拟<span class="literal">IP</span>是否切换到备用服务器上</span><br><span class="line"><span class="label"></span><br><span class="line">ps:</span></span><br><span class="line">当主备服务器都出现了VIP，可能是网络环境不支持广播方式，此时要使用单播方式</span><br></pre></td></tr></table></figure></p>
+<p>unicast_src_ip 10.205.22.185    #本机IP<br>unicast_peer {<br>         10.205.22.186  #备机IP<br>     }<br>```</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://wsl222000.github.io/2016/08/24/keepalived/" data-id="cis8kholy000gngcpyyiui784" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/keepalived/">keepalived</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-824" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/08/24/824/" class="article-date">
@@ -109,7 +163,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://wsl222000.github.io/2016/08/24/824/" data-id="cis8cxnrt0000yscp6bp2put8" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://wsl222000.github.io/2016/08/24/824/" data-id="cis8khoim0000ngcpck34mm58" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -158,7 +212,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://wsl222000.github.io/2015/06/17/article/" data-id="cis8cxnwj000myscpck5rdy9x" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://wsl222000.github.io/2015/06/17/article/" data-id="cis8khomi000qngcpwbjl41dk" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -208,7 +262,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://wsl222000.github.io/2015/06/05/zabbix/" data-id="cis8cxnun0006yscpzup8e80d" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://wsl222000.github.io/2015/06/05/zabbix/" data-id="cis8khola0006ngcpecxhslbz" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -257,7 +311,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://wsl222000.github.io/2015/06/05/python3/" data-id="cis8cxnv10009yscpyx82nvss" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://wsl222000.github.io/2015/06/05/python3/" data-id="cis8kholi0009ngcpeuyd7my5" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -306,7 +360,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://wsl222000.github.io/2015/06/05/python2/" data-id="cis8cxnvc000cyscpi2m8fk5a" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://wsl222000.github.io/2015/06/05/python2/" data-id="cis8kholm000cngcpfp53cd9e" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -355,7 +409,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://wsl222000.github.io/2015/06/04/python/" data-id="cis8cxnvn000eyscp9n7ce3zr" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://wsl222000.github.io/2015/06/04/python/" data-id="cis8kholt000engcp8v70x6r8" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -407,7 +461,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://wsl222000.github.io/2015/06/04/ftp/" data-id="cis8cxnw6000jyscpcfoa21ut" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://wsl222000.github.io/2015/06/04/ftp/" data-id="cis8khomc000ongcp3i83wgin" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -452,7 +506,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://wsl222000.github.io/2015/06/03/hexo-inatll/" data-id="cis8cxnw0000gyscpml4a2ou1" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://wsl222000.github.io/2015/06/03/hexo-inatll/" data-id="cis8khom6000lngcpkocwlokd" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -474,7 +528,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/zabbix/">zabbix</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/博客/">博客</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/zabbix/">zabbix</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/博客/">博客</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -483,7 +537,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keepalived/">keepalived</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -492,7 +546,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a>
+      <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/keepalived/" style="font-size: 10px;">keepalived</a>
     </div>
   </div>
 
@@ -501,7 +555,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">7</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -511,6 +565,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/08/24/keepalived/">keepalived实现nginx的高可用</a>
+          </li>
         
           <li>
             <a href="/2016/08/24/824/">MySQL5.6基于GTID的主从复制配置</a>
@@ -526,10 +584,6 @@
         
           <li>
             <a href="/2015/06/05/python3/">python 显示目录内容</a>
-          </li>
-        
-          <li>
-            <a href="/2015/06/05/python2/">python 文件存在则输出</a>
           </li>
         
       </ul>
