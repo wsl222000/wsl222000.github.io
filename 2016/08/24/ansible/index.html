@@ -6,19 +6,16 @@
   
   <title>使用ansible安装配置zabbix客户端 | Jack Wu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ansible角色简介：defaults  默认变量存放目录handlers    处理程序（当发生改变时需要执行的操作）meta    角色依赖关系处理tasks    具体执行的任务操作定义templates    模板文件存放目录vars    变量文件目录files    安装包文件目录
-1.查看ansible控制端目录结构，tree /etc/ansible123456789101112">
+  <meta name="description" content="ansible角色简介：defaults  默认变量存放目录handlers    处理程序（当发生改变时需要执行的操作）meta    角色依赖关系处理tasks    具体执行的任务操作定义templates    模板文件存放目录vars    变量文件目录files    安装包文件目录">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用ansible安装配置zabbix客户端">
 <meta property="og:url" content="http://wsl222000.github.io/2016/08/24/ansible/index.html">
 <meta property="og:site_name" content="Jack Wu">
-<meta property="og:description" content="ansible角色简介：defaults  默认变量存放目录handlers    处理程序（当发生改变时需要执行的操作）meta    角色依赖关系处理tasks    具体执行的任务操作定义templates    模板文件存放目录vars    变量文件目录files    安装包文件目录
-1.查看ansible控制端目录结构，tree /etc/ansible123456789101112">
-<meta property="og:updated_time" content="2016-08-24T08:51:16.280Z">
+<meta property="og:description" content="ansible角色简介：defaults  默认变量存放目录handlers    处理程序（当发生改变时需要执行的操作）meta    角色依赖关系处理tasks    具体执行的任务操作定义templates    模板文件存放目录vars    变量文件目录files    安装包文件目录">
+<meta property="og:updated_time" content="2016-08-24T09:04:42.935Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用ansible安装配置zabbix客户端">
-<meta name="twitter:description" content="ansible角色简介：defaults  默认变量存放目录handlers    处理程序（当发生改变时需要执行的操作）meta    角色依赖关系处理tasks    具体执行的任务操作定义templates    模板文件存放目录vars    变量文件目录files    安装包文件目录
-1.查看ansible控制端目录结构，tree /etc/ansible123456789101112">
+<meta name="twitter:description" content="ansible角色简介：defaults  默认变量存放目录handlers    处理程序（当发生改变时需要执行的操作）meta    角色依赖关系处理tasks    具体执行的任务操作定义templates    模板文件存放目录vars    变量文件目录files    安装包文件目录">
   
     <link rel="alternative" href="/atom.xml" title="Jack Wu" type="application/atom+xml">
   
@@ -101,7 +98,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="ansible角色简介：">ansible角色简介：</h3><p>defaults  默认变量存放目录<br><br>handlers    处理程序（当发生改变时需要执行的操作）<br><br>meta    角色依赖关系处理<br><br>tasks    具体执行的任务操作定义<br><br>templates    模板文件存放目录<br><br>vars    变量文件目录<br><br>files    安装包文件目录</p>
+        <h3 id="ansible角色简介：">ansible角色简介：</h3><p>defaults  默认变量存放目录<br>handlers    处理程序（当发生改变时需要执行的操作）<br>meta    角色依赖关系处理<br>tasks    具体执行的任务操作定义<br>templates    模板文件存放目录<br>vars    变量文件目录<br>files    安装包文件目录</p>
+<a id="more"></a>
 <p>1.查看ansible控制端目录结构，tree /etc/ansible<br><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">/etc/ansible/</span><br><span class="line">├── ansible.cfg</span><br><span class="line">├── delete_zabbix_agent.yml</span><br><span class="line">├── hosts</span><br><span class="line">├── install_zabbix_agent.yml</span><br><span class="line">└── <span class="literal">roles</span></span><br><span class="line">    ├── delete_zabbix_agent</span><br><span class="line">    │   ├── tasks</span><br><span class="line">    │   │   └── <span class="keyword">main</span>.yml</span><br><span class="line">    │   └── vars</span><br><span class="line">    │       └── <span class="keyword">main</span>.yml</span><br><span class="line">    └── install_zabbix_agent</span><br><span class="line">        ├── files</span><br><span class="line">        │   └── zabbix-<span class="number">2.2</span>.<span class="number">1</span>.tar.gz</span><br><span class="line">        ├── tasks</span><br><span class="line">        │   └── <span class="keyword">main</span>.yml</span><br><span class="line">        ├── templates</span><br><span class="line">        │   ├── zabbix_agentd</span><br><span class="line">        │   └── zabbix_agentd.conf</span><br><span class="line">        └── vars</span><br><span class="line">            └── <span class="keyword">main</span>.yml</span><br><span class="line"></span><br><span class="line"> <span class="comment"># ansible.cfg  此文件为ansible的主配置文件</span></span><br><span class="line"> <span class="comment"># hosts        用于定义主机组</span></span><br><span class="line"> <span class="comment"># roles        定义不同的角色</span></span><br><span class="line"> <span class="comment"># install_zabbix_agent.yml  用于安装zabbix_agent的引导文件</span></span><br><span class="line"> <span class="comment"># delete_zabbix_agent.yml   删除已安装的zabbix_agent的引导文件</span></span><br><span class="line"> <span class="comment"># files     目录：用于存放将要拷贝到远程主机的安装包等</span></span><br><span class="line"> <span class="comment"># tasks     目录：将要执行的所有任务，如果比较复杂，可以单独定义不同的任务，最后在main.yml 件中引用即可</span></span><br><span class="line"> <span class="comment"># templates 目录：模板目录，这里存放着一些可变的文件</span></span><br><span class="line"> <span class="comment"># vars      目录：用于存放变量</span></span><br></pre></td></tr></table></figure></p>
 <p>2.install_zabbix_agent.yml文件内容<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> <span class="symbol">hosts:</span> host</span><br><span class="line"></span>  roles:</span><br><span class="line">  -<span class="ruby"> install_zabbix_agent</span></span><br></pre></td></tr></table></figure></p>
 <p>3.delete_zabbix_agent.yml文件内容<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> <span class="symbol">hosts:</span> host</span><br><span class="line"></span>  roles:</span><br><span class="line">    -<span class="ruby"> delete_zabbix_agent</span></span><br></pre></td></tr></table></figure></p>
@@ -119,7 +117,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://wsl222000.github.io/2016/08/24/ansible/" data-id="cis8nw1y2000t9ccp0wuaya3t" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://wsl222000.github.io/2016/08/24/ansible/" data-id="cis8od98e000tk8cph1aoc1ec" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
